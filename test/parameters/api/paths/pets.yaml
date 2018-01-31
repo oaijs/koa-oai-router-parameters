@@ -1,0 +1,160 @@
+/pets:
+  get:
+    description: "Returns all pets from the system that the user has access to"
+    operationId: "findPets"
+    produces:
+      - "application/json"
+    tags:
+      - pets
+    parameters:
+      - name: "tags"
+        in: "query"
+        description: "tags to filter by"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "csv"
+      - name: "limit"
+        in: "query"
+        description: "maximum number of results to return"
+        required: false
+        type: "integer"
+        format: "int32"
+    x-oai-middleware:
+      - file: pets
+        handler: findPets
+    responses:
+      "200":
+        description: "pet response"
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/Pet"
+      default:
+        description: "unexpected error"
+        schema:
+          $ref: "#/definitions/ErrorModel"
+  post:
+    description: "Creates a new pet in the store.  Duplicates are allowed"
+    operationId: "addPet"
+    produces:
+      - "application/json"
+    tags:
+      - pets
+    x-oai-middleware:
+      - file: pets
+        handler: findPets
+    parameters:
+      - name: "pet"
+        in: "body"
+        description: "Pet to add to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/NewPet"
+    responses:
+      "200":
+        description: "pet response"
+        schema:
+          $ref: "#/definitions/Pet"
+      default:
+        description: "unexpected error"
+        schema:
+          $ref: "#/definitions/ErrorModel"
+
+/pets/{petId}/image:
+  post:
+    description: "Creates a new pet in the store.  Duplicates are allowed"
+    operationId: "addPet"
+    produces:
+      - "application/json"
+    tags:
+      - pets
+    x-oai-middleware:
+      - file: pets
+        handler: findPets
+    parameters:
+      - name: "petId"
+        in: "path"
+        type: "string"
+        required: true
+        description: "Pet to add to the store"
+      - name: "image"
+        in: "formData"
+        type: "string"
+        required: true
+        description: "Pet to add to the store"
+    responses:
+      "200":
+        description: "pet response"
+        schema:
+          $ref: "#/definitions/Pet"
+      default:
+        description: "unexpected error"
+        schema:
+          $ref: "#/definitions/ErrorModel"
+
+
+/pets/{petId}:
+  get:
+    description: "Returns all pets from the system that the user has access to"
+    operationId: "findPets"
+    produces:
+      - "application/json"
+    tags:
+      - pets
+    parameters:
+      - name: "petId"
+        in: "path"
+        required: true
+        type: "number"
+        format: "int32"
+    x-oai-middleware:
+      - file: pets
+        handler: findPets
+    responses:
+      "200":
+        description: "pet response"
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/Pet"
+      default:
+        description: "unexpected error"
+        schema:
+          $ref: "#/definitions/ErrorModel"
+  delete:
+    description: "Returns all pets from the system that the user has access to"
+    operationId: "findPets"
+    produces:
+      - "application/json"
+    tags:
+      - pets
+    parameters:
+      - name: "petId"
+        in: "path"
+        required: true
+        type: "number"
+        format: "int32"
+      - name: "appKey"
+        in: header
+        required: true
+        type: string
+      - name: "appSecret"
+        in: header
+        required: true
+        type: string
+    x-oai-middleware:
+      - file: pets
+        handler: findPets
+    responses:
+      "200":
+        description: "pet response"
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/Pet"
+      default:
+        description: "unexpected error"
+        schema:
+          $ref: "#/definitions/ErrorModel"

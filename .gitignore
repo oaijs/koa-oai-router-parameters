@@ -1,0 +1,13 @@
+.idea
+.DS_Store
+.nyc_output
+.vscode
+
+*.log
+*.map
+*.lcov
+
+coverage
+dist
+dist-test
+node_modules
