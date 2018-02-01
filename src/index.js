@@ -101,7 +101,7 @@ function middlewareWrapper(middlewareOpts, middlewareArgs = {}) {
  */
 function plugin(args) {
   return new Plugin({
-    name: 'validator',
+    name: 'parameters',
     field: 'parameters',
     middlewareArgs: args,
     middlewareWrapper,

@@ -45,7 +45,7 @@ npm i koa-oai-router-parameters --save
 # Info
 |field|type|info|
 |---|---|---|
-|name|`string`|`validator`|
+|name|`string`|`parameters`|
 |evoked fields|`string`| `parameters`|
 |evoked value|`object`| [OpenApi parameter object][param]|
 |options|`object`| `header`,`path`,`query`,`formData`,`body`,`ajv`,`handler` |
