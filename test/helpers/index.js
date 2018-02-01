@@ -10,9 +10,9 @@ async function init(opts) {
   const router = new Router(opts);
   const { plugins } = opts;
 
-  Object.values(plugins).forEach((plugin) => {
-    router.mount(plugin);
-  });
+  for (const plugin in plugins) {
+    router.mount(plugins[plugin]);
+  }
 
   app.use(bodyParser());
   app.use(router.routes());

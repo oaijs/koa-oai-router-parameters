@@ -57,7 +57,7 @@ npm i koa-oai-router-parameters --save
   * `formData` `{boolean}` Enable formData validator. default `true`
   * `body` `{boolean}` Enable body validator. default `true`
   * `ajv` `{object|function}` `object` is options of [Ajv][ajv]. `function` is a factory with arguments `(Ajv)` and must return a ajv instance.
-  * `handler` `{function}` Response handler when validate fail. Having arguments `(ctx, next, {errors, endpoint, field, fieldValue, operation, operationValue})`. Default handler response [Ajv Error][ajv-error] to body. eg:
+  * `handler` `{function}` Response handler when validate fail. Having arguments `(ctx, next, {errors, endpoint, field, fieldValue, operation, operationValue})`. Default handler response [Ajv Error][ajv-error] to body. e.g.
     ```js
     [{
       "keyword":"type",
