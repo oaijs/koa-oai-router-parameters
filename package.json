@@ -1,6 +1,6 @@
 {
   "name": "koa-oai-router-parameters",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "parameters validator plugin for koa-oai-router",
   "main": "src",
   "scripts": {
