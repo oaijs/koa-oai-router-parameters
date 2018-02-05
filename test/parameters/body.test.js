@@ -7,12 +7,13 @@ describe('body', () => {
   it('valid body, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 
@@ -30,12 +31,13 @@ describe('body', () => {
   it('invalid body, disable body validator, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters({ body: false }),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: { body: false },
       },
     });
 
@@ -52,12 +54,13 @@ describe('body', () => {
   it('invalid body, should error', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 

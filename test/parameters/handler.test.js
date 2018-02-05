@@ -7,17 +7,18 @@ describe('handler', () => {
   it('handler is function, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters({
+      plugins: [
+        parameters,
+        middleware,
+      ],
+      options: {
+        middleware: './test/parameters/controllers',
+        parameters: {
           handler: (ctx, next, { errors }) => {
             ctx.response.status = 400;
             ctx.response.body = 'params error';
           },
-        }),
-        middleware: middleware(),
-      },
-      options: {
-        middleware: './test/parameters/controllers',
+        },
       },
     });
 

@@ -1,6 +1,6 @@
 {
   "name": "koa-oai-router-parameters",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "parameters validator plugin for koa-oai-router",
   "main": "src",
   "scripts": {
@@ -27,12 +27,13 @@
     "lodash.isplainobject": "^4.0.6"
   },
   "peerDependencies": {
-    "koa-oai-router": "^2.0.0-alpha.2 || ^2.0.0"
+    "koa-oai-router": "^2.0.0-alpha.4 || ^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^22.1.0",
     "babel-preset-env": "^1.6.1",
+    "bluebird": "^3.5.1",
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",

@@ -7,12 +7,13 @@ describe('query', () => {
   it('valid query, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 
@@ -30,12 +31,13 @@ describe('query', () => {
   it('invalid query, disable query validator, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters({ query: false }),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: { query: false },
       },
     });
 
@@ -53,12 +55,13 @@ describe('query', () => {
   it('invalid query, should error', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 

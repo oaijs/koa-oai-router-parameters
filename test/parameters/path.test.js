@@ -7,12 +7,13 @@ describe('path', () => {
   it('valid path, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 
@@ -27,12 +28,13 @@ describe('path', () => {
   it('invalid path, disable path validator, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters({ path: false }),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: { path: false },
       },
     });
 
@@ -46,12 +48,13 @@ describe('path', () => {
   it('invalid path, should error', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 

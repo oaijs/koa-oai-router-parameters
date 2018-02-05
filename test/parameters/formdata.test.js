@@ -7,12 +7,13 @@ describe('formData', () => {
   it('valid formData, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 
@@ -29,12 +30,13 @@ describe('formData', () => {
   it('invalid formData, disable validator, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters({ formData: false }),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: { formData: false },
       },
     });
 
@@ -51,12 +53,13 @@ describe('formData', () => {
   it('invalid formData, should error', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 

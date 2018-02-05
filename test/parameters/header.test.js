@@ -7,12 +7,13 @@ describe('header', () => {
   it('valid header, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 
@@ -28,12 +29,13 @@ describe('header', () => {
   it('invalid header, disable header validator, should success', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters({ header: false }),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: { header: false },
       },
     });
 
@@ -49,12 +51,13 @@ describe('header', () => {
   it('invalid header, should error', async () => {
     const { request } = await init({
       apiDoc: './test/parameters/api',
-      plugins: {
-        parameters: parameters(),
-        middleware: middleware(),
-      },
+      plugins: [
+        parameters,
+        middleware,
+      ],
       options: {
         middleware: './test/parameters/controllers',
+        parameters: {},
       },
     });
 
