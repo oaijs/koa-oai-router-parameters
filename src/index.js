@@ -1,4 +1,5 @@
 const Router = require('koa-oai-router');
+const omitBy = require('lodash.omitby');
 const { parametersToJsonSchema } = require('jsonschema-oai-parameters');
 const debug = require('debug')('koa-oai-router:parameters');
 
@@ -52,6 +53,11 @@ class ParametersPlugin extends Plugin {
       ajv,
       handler = defaultHandler,
     } = this.args;
+
+    // Not support valid formData file.
+    formDataSchema.properties = omitBy(formDataSchema.properties, (property) => {
+      return property.type === 'file';
+    });
 
     const ajvValidator = getAjv(ajv);
     const headerValidate = ajvValidator.compile(headerSchema);

@@ -1,6 +1,6 @@
 {
   "name": "koa-oai-router-parameters",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "parameters validator plugin for koa-oai-router",
   "main": "src",
   "scripts": {
@@ -24,7 +24,8 @@
     "debug": "^3.1.0",
     "jsonschema-oai-parameters": "0.0.5",
     "lodash.isfunction": "^3.0.8",
-    "lodash.isplainobject": "^4.0.6"
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.omitby": "^4.6.0"
   },
   "peerDependencies": {
     "koa-oai-router": "^2.0.0-alpha.4 || ^2.0.0"

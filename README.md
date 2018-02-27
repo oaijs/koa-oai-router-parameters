@@ -3,7 +3,7 @@
 [license-img]: http://img.shields.io/badge/license-MIT-green.svg
 [license-url]: http://opensource.org/licenses/MIT
 
-[node-image]: https://img.shields.io/badge/node.js-v6.0.0-blue.svg
+[node-image]: https://img.shields.io/badge/node.js-v7.6.0-blue.svg
 [node-url]: http://nodejs.org/download/
 
 [npm-img]: https://img.shields.io/npm/v/koa-oai-router-parameters.svg
