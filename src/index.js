@@ -52,7 +52,7 @@ class ParametersPlugin extends Plugin {
       body = true,
       ajv,
       handler = defaultHandler,
-    } = this.args;
+    } = this.args || {};
 
     // Not support valid formData file.
     formDataSchema.properties = omitBy(formDataSchema.properties, (property) => {
